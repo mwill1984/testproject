@@ -33,6 +33,7 @@ class CreateShoppersTable extends Migration
 
             $table->dateTime('check_in')->index();
             $table->dateTime('check_out')->index()->nullable();
+            $table->dateTime('activated')->index()->nullable();
 
             $table->foreignId('user_id')
                 ->nullable()

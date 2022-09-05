@@ -15,6 +15,10 @@
 </x-table-column>
 
 <x-table-column>
+    {{ $shopper['activated'] }}
+</x-table-column>
+
+<x-table-column>
     {{ $shopper['check_out'] }}
 </x-table-column>
 

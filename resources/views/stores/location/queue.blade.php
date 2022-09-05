@@ -28,6 +28,9 @@
                                 Check-In
                             </th>
                             <th>
+                                Activated
+                            </th>
+                            <th>
                                 Check-Out
                             </th>
                         </tr>

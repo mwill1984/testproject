@@ -21,4 +21,17 @@ class Status extends Model
     {
         return $this->hasMany(Shopper::class);
     }
+    
+    /*
+     * Retrieve the id value for the given status
+     * @param name string
+     * @return int
+     */
+    public static function getStatusIdFromStatusName($name) : int {
+        
+        $status = Status::where('name', $name)->get();
+        return $status[0]->id;
+        
+    }
+    
 }

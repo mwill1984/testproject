@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Store\Location\LocationController;
 use App\Http\Controllers\Store\Location\QrCodeController;
+use App\Http\Controllers\Shopper\ShopperQueueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,12 @@ Route::namespace('Location')
 
         Route::name('location')
             ->get('/{location}', [LocationController::class, 'public']);
+        
+        Route::name('checkin')
+            ->post('/checkin', [ShopperQueueController::class, 'checkin']);
+        
+        Route::name('queuewaiting')
+            ->get('/queuewaiting/{uuid}', [ShopperQueueController::class, 'queuewaiting']);
 
     });
 

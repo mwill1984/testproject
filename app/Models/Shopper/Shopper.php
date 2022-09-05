@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Shopper extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $fillable = ['first_name', 'last_name', 'email', 'status_id', 'location_id', 'check_in'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -29,5 +30,5 @@ class Shopper extends Model
     public function status(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Status::class);
-    }
+    }   
 }

@@ -22,3 +22,4 @@ Route::name('save')
 
 Route::name('queue')
     ->get('/{locationUuid}', [LocationController::class, 'queue']);
+
