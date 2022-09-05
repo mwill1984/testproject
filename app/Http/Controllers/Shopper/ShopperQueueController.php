@@ -9,6 +9,7 @@ use App\Http\Requests\Shopper\ShopperCreateRequest;
 use App\Models\Shopper\Status;
 use App\Models\Shopper\Shopper;
 use App\Models\Store\Location\Location;
+use App\Services\Store\Location\LocationService;
 
 class ShopperQueueController extends Controller
 {
@@ -50,7 +51,5 @@ class ShopperQueueController extends Controller
             ->with('position', $position)
             ->with('shopper', $shopper)
             ->with('location', $location);
-        
     }
-    
 }
