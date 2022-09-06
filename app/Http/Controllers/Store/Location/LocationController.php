@@ -65,7 +65,39 @@ class LocationController extends Controller
 
         return redirect()->route('store.store', ['store' => $storeUuid]);
     }
-
+    
+    /**
+     * 
+     * @param LocationCreateRequest $request
+     * @param string $storeUuid
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function edit(string $storeUuid, string $locationUuid)
+    {
+        //dd($locationUuid);
+        $location = Location::where('uuid', $locationUuid)
+                ->first();
+        
+        return view('stores.location.edit')
+            ->with('storeUuid', $storeUuid)
+            ->with('location', $location);
+    }
+    
+    /**
+     * @param LocationStoreRequest $request
+     * @param string $storeUuid
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(LocationStoreRequest $request, string $storeUuid): \Illuminate\Http\RedirectResponse
+    {
+        $this->location->update($request->location_id, [
+            'location_name' => $request->location_name,
+            'shopper_limit' => $request->shopper_limit
+            ]);
+        
+        return redirect()->route('store.store', ['store' => $storeUuid]);
+    }
+        
     /**
      * @param LocationQueueRequest $request
      * @param string $storeUuid

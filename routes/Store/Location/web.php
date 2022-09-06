@@ -20,6 +20,12 @@ Route::name('create')
 Route::name('save')
     ->post('/create', [LocationController::class, 'store']);
 
+Route::name('edit')
+    ->get('/edit/{locationUuid}', [LocationController::class, 'edit']);
+
+Route::name('update')
+    ->post('/update', [LocationController::class, 'update']);
+
 Route::name('queue')
     ->get('/{locationUuid}', [LocationController::class, 'queue']);
 
