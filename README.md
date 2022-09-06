@@ -18,6 +18,8 @@ Much of this project has already been pre-designed and built for you. Follow the
 
 6. Run: `php artisan db:seed`
 
+7. This project requires scheduled tasks to process the queue.  Run: `php artisan schedule:work`
+
 ## Project Scope
 
 Due to the Covid-19 pandemic, major grocery store chains are only allowing X amount of people inside to shop at a time at their locations. Each grocery store location keeps a real-time ledger of active, completed and pending shoppers.

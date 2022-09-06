@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Store\Location\LocationController;
+use App\Http\Controllers\Store\EmployeeShopperController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,8 @@ Route::name('update')
 
 Route::name('queue')
     ->get('/{locationUuid}', [LocationController::class, 'queue']);
+
+Route::name('checkout')
+    ->post('/checkout/{shopperUuid}', [EmployeeShopperController::class, 'checkout']);
+
 

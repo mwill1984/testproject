@@ -66,7 +66,7 @@ class Shopper extends Model
     public static function activateNextShopper($location_id) {
         Shopper::where('location_id', $location_id)
                 ->where('status_id', Status::getStatusIdFromStatusName('Pending'))
-                ->orderBy('check_in', 'DESC')
+                ->orderBy('check_in', 'ASC')
                 ->take(1)
                 ->update([
                     'status_id' => Status::getStatusIdFromStatusName('Active'),
@@ -113,8 +113,6 @@ class Shopper extends Model
             
             //If the location has fewer active shoppers than the limit, let in as many shoppers as we can.
             $activeCount =  Shopper::countActiveShoppers($location->id);
-            
-            echo $location->id . " Active: " . $activeCount . " Limit: " . $location->shopper_limit . " Queued: " . Shopper::countQueuedShoppers($location->id) . "\n";
             
             if ($activeCount < $location->shopper_limit) {
                 

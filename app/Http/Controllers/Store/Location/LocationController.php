@@ -74,7 +74,6 @@ class LocationController extends Controller
      */
     public function edit(string $storeUuid, string $locationUuid)
     {
-        //dd($locationUuid);
         $location = Location::where('uuid', $locationUuid)
                 ->first();
         
@@ -121,8 +120,9 @@ class LocationController extends Controller
         if( isset($location['shoppers']) && count($location['shoppers']) >= 1 ){
             $shoppers = $this->location->getShoppers($location['shoppers']);
         }
-
+        
         return view('stores.location.queue')
+            ->with('storeUuid', $storeUuid)
             ->with('location', $location)
             ->with('shoppers', $shoppers);
     }

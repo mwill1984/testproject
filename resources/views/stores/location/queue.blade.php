@@ -40,7 +40,7 @@
                             @if( count( $shoppers['active'] )  >= 1 )
                                 @foreach( $shoppers['active'] as $shopper )
                                     <tr class="text-center">
-                                        <x-shopper.listing :shopper="$shopper"/>
+                                        <x-shopper.listing :shopper="$shopper" :location="$location" :storeUuid="$storeUuid"/>
                                     </tr>
                                 @endforeach
                             @endif
@@ -49,7 +49,7 @@
                             @if( count( $shoppers['pending'] )  >= 1 )
                                 @foreach( $shoppers['pending'] as $shopper )
                                     <tr class="text-center">
-                                        <x-shopper.listing :shopper="$shopper"/>
+                                        <x-shopper.listing :shopper="$shopper" :location="$location" :storeUuid="$storeUuid"/>
                                     </tr>
                                 @endforeach
                             @endif
@@ -58,7 +58,7 @@
                             @if( count( $shoppers['completed'] )  >= 1 )
                                 @foreach( $shoppers['completed'] as $shopper )
                                     <tr class="text-center">
-                                        <x-shopper.listing :shopper="$shopper"/>
+                                        <x-shopper.listing :shopper="$shopper" :location="$location" :storeUuid="$storeUuid"/>
                                     </tr>
                                 @endforeach
                             @endif
